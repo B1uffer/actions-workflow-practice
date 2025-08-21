@@ -1,6 +1,9 @@
 # 1. JDK 이미지를 베이스로 사용
 FROM openjdk:17-jdk-slim
 
+# 작업 디렉토리 생성
+WORKDIR /app
+
 # 2. 애플리케이션 JAR 파일을 컨테이너로 복사
 ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} app.jar
