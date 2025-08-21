@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO # 로그 쌓이는게 귀찮아서 INFO로 설정
+  file:
+    name: /app/logs/myapp.log # 저장할 위치 설정
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: health
+
+DB_HOST: ${DB_HOST}
+DB_PASSWORD: ${DB_PASSWORD}

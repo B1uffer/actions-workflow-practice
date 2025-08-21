@@ -1,0 +1,19 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # 실행될때 바탕이 되는 OS, ubuntu에서 빌드할거임
+    steps:
+      - uses: actions/checkout@v3 # 현재 리포에 있는 코드를 가져오는거임
+      - name: JDK 17 설정
+        uses: actions/setup-java@v3 # java 환경을 세팅하는 공식 액션
+        with:
+          java-version: '17' # 설치할 java 버전
+          distribution: 'temurin'
+      - name: 빌드 및 테스트
+        run: ./gradlew clean build # gradle 빌드 및 테스트 실행
